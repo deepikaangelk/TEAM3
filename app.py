@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Secret key for session management
 
 # Load dataset
-dataset = pd.read_csv(r"C:\Users\deepi\OneDrive\Desktop\D-CLOUDDEPLOY\balanced_urls.csv")
+dataset = pd.read_csv(r"C:\Users\deepi\OneDrive\Desktop\D-CLOUDDEPLOY\balanced_urls.zip")
 
 # Ensure that the dataset contains the 'url' and 'label' columns
 dataset = dataset[['url', 'label','result']]  # Selecting only relevant columns
