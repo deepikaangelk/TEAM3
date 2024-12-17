@@ -4,13 +4,19 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 import os
+import zipfile
+import pandas as pd
+
+# Assuming the zip file is in the same directory as your script
+with zipfile.ZipFile('balanced_urls.zip', 'r') as zip_ref:
+    zip_ref.extractall()
+
+# Read the extracted CSV file
+dataset = pd.read_csv('balanced_urls.csv')
 
 # Initialize Flask app
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Secret key for session management
-
-# Load dataset
-dataset = pd.read_csv(r"C:\Users\deepi\OneDrive\Desktop\D-CLOUDDEPLOY\balanced_urls.zip")
 
 # Ensure that the dataset contains the 'url' and 'label' columns
 dataset = dataset[['url', 'label','result']]  # Selecting only relevant columns
